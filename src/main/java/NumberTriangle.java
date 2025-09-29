@@ -90,19 +90,16 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-
         if (path.isEmpty()) {
-            return this.root;
+            return root;
         }
-        else if (path.charAt(0) == ('l')){
-            return this.left.retrieve(path.substring(1));
-        }
-        else
-        {
-            return this.right.retrieve(path.substring(1));
+        char move = path.charAt(0);
+        if (move == 'r') {
+            return right.retrieve(path.substring(1));
+        } else {
+            return left.retrieve(path.substring(1));
         }
     }
-
     /** Read in the NumberTriangle structure from a file.
      *
      * You may assume that it is a valid format with a height of at least 1,
